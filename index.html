@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Block</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-options">
+        <div class="hint-bar">
+            <input checked type="checkbox" id="showHint">
+            <label for="showHint">Show Hint</label>
+        </div>
+        <div class="timer">
+            Time: <span id="timer">60</span>s
+        </div>
+        <div class="timer">
+            Score: <span id="score">0</span>
+        </div>
+    </div>
+    <main class="game">
+        <h2 class="logo">
+           <span>
+            <i style="--clr: #EEA47F">C</i>
+            <i style="--clr: #2F3C7E">O</i>
+            <i style="--clr: #FBEAEB">L</i>
+            <i style="--clr: #FEE715">O</i>
+            <i style="--clr: #CCF381">R</i>
+           </span>
+           <span>
+            <i style="--clr: #E2D1F9">B</i>
+            <i style="--clr: #8AAAE5">L</i>
+            <i style="--clr: #FF69B4">O</i>
+            <i style="--clr: #00FFFF">C</i>
+            <i style="--clr: #EE4E34">K</i>
+            <i style="--clr: #CBD18F">S</i>
+           </span>
+        </h2>
+        <button id="start">Start</button>
+       <div class="pick hide">
+        <div id="pickColor" class="color"></div>
+        <span class="hint"></span>
+       </div>
+
+        <div class="blocks">
+            <div id="1" class="block"></div>
+            <div id="2" class="block"></div>
+            <div id="3" class="block"></div>
+            <div id="4" class="block"></div>
+            <div id="5" class="block"></div>
+            <div id="6" class="block"></div>
+            <div id="7" class="block"></div>
+            <div id="8" class="block"></div>
+            <div id="9" class="block"></div>
+            <div id="10" class="block"></div>
+            <div id="11" class="block"></div>
+            <div id="12" class="block"></div>
+            <div id="13" class="block"></div>
+            <div id="14" class="block"></div>
+            <div id="15" class="block"></div>
+            <div id="16" class="block"></div>
+            <div id="17" class="block"></div>
+            <div id="18" class="block"></div>
+            <div id="19" class="block"></div>
+            <div id="20" class="block"></div>
+           
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
