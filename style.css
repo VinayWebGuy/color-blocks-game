@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,500;1,700;1,900&family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@500;600;700&display=swap');
-
 * { 
     margin: 0;
     padding: 0;
@@ -65,8 +64,6 @@ button {
 .hint.off {
     display: none;
 }
-
-
 .blocks{
     display: flex;
     justify-content: center;
@@ -81,7 +78,10 @@ button {
     margin: 8px;
     cursor: pointer;
 }
-
+.block:not(.taken) {
+    opacity: 0.5;
+    pointer-events: none;
+}
 .game-options{
     position: fixed;
     right: 2%;
@@ -104,4 +104,31 @@ button {
 }
 #showHint{
     opacity: 0;
+}
+.game-over{
+    color: red;
+    font-size: 1.7rem;
+    font-weight: 700;
+    display: none;
+}
+.game-over.view {
+    display: block;
+}
+#start.off{
+    display: none;
+}
+@media screen and (max-width: 500px) {
+    .logo {
+        font-size: 3rem;
+        margin: 15px 0;
+    }
+    .block {
+        width: 50px;
+        height: 50px;
+    }
+    .game-options{
+        left: 50%;
+        transform: translateX(-75%);
+        right: 0;
+    }
 }

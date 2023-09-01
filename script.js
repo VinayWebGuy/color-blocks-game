@@ -1,12 +1,15 @@
 $(document).ready(function () {
-    let time = 60;
+    let time = 10;
     let score = 0;
     let timeInterval;
 
     $('#start').on('click', function () {
         initializeGame();
-        $('#start').remove();
+        $('#start').addClass('off');
         $('.pick').removeClass('hide');
+        if($('.game-over').hasClass('view')) {
+            $('.game-over').removeClass('view');
+        }
         runTimer();
     });
 
@@ -30,13 +33,16 @@ $(document).ready(function () {
         $('#pickColor').html(pickColor);
         $('.hint').css({ 'backgroundColor': pickColor });
 
+        console.log(colors);
         // Remove the selected pickColor from the colors array
         colors.splice(randomValue, 1);
+        let new_colors = colors
 
         $('.block').each(function () {
-            let value = Math.floor(Math.random() * colors.length);
-            let color = colors[value];
+            let value = Math.floor(Math.random() * new_colors.length);
+            let color = new_colors[value];
             $(this).css({ 'backgroundColor': color });
+            $(this).addClass('taken');
         });
 
         let randomBlock = Math.floor(Math.random() * colors.length);
@@ -56,13 +62,10 @@ $(document).ready(function () {
     function checkGame(bg, a_bg) {
         if (bg == a_bg) {
             score++;
-            console.log("Yes");
         } else {
             if (score > 0) {
                 score--;
-                console.log("No No");
             }
-            console.log("No");
         }
         initializeGame();
         $('#score').html(score);
@@ -75,6 +78,13 @@ $(document).ready(function () {
                 time--;
             } else {
                 clearInterval(timeInterval);
+                $('.block').removeClass('taken');
+                $('.block').css({'backgroundColor': 'transparent'});
+                $('.game-over').addClass('view');
+                $('#start').removeClass('off');
+                $('.pick').addClass('hide');
+                time = 10;
+                score = 0
             }
         }, 1000);
     }
